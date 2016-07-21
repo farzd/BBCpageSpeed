@@ -1,0 +1,25 @@
+{
+  "name": "bbcpagespped",
+  "version": "1.0.0",
+  "description": "BBC Page speed comparison tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farzd/BBCpageSpeed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farzd/BBCpageSpeed/issues"
+  },
+  "homepage": "https://github.com/farzd/BBCpageSpeed#readme",
+  "dependencies": {
+    "chart.js": "^2.2.0-rc.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "phantomas": "^1.16.0"
+  }
+}

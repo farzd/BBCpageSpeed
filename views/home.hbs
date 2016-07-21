@@ -1,0 +1,75 @@
+URL 1 {{sample1Url}}<br/>
+# of requests {{sample1Requests}}<br/>
+Mean {{sample1TTFBMean}}
+<table border="1" style="margin:0 auto">
+    <tr>
+    {{#each sample1}}
+        {{#if @first}}<td>Time to first byte (ms)</td>{{/if}}
+        <td>{{this.timeToFirstByte}}</td>
+    {{/each}}
+    </tr>
+    <tr>
+    {{#each sample1}}
+    {{#if @first}}<td>DOM Contentloaded (ms)</td>{{/if}}
+        <td>{{this.domContentLoaded}}</td>
+    {{/each}}
+    </tr>
+</table>
+
+<br/>
+
+URL 2 {{sample2Url}} <br/>
+# of requests {{sample2Requests}}  <br/>
+Mean {{sample2TTFBMean}}
+<table border="1" style="margin:0 auto">
+    <tr>
+    {{#each sample2}}
+        {{#if @first}}<td>Time to first byte (ms)</td>{{/if}}
+        <td>{{this.timeToFirstByte}}</td>
+    {{/each}}
+    </tr>
+    <tr>
+    {{#each sample2}}
+    {{#if @first}}<td>DOM Contentloaded (ms)</td>{{/if}}
+        <td>{{this.domContentLoaded}}</td>
+    {{/each}}
+    </tr>
+</table>
+
+<div style="width: 700px; margin:100px auto 0 auto;">
+    <canvas id="myChart"></canvas>
+</div>
+<script>
+var ctx = document.getElementById("myChart");
+var myLineChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["AWS", "FORGE"],
+        datasets: [{
+            label: "My First dataset",
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1,
+            data: [{{sample1TTFBMean}}, {{sample2TTFBMean}}, 10],
+        }]
+    },
+    options: {
+        scaleOverride:true,
+        scaleStartValue: 10
+    }
+});
+</script>
