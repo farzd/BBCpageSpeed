@@ -2,7 +2,7 @@ var phantomas = require('phantomas');
 
 module.exports.runTest = function runTest(url, sampleSize) {
     const url1Promise = Array.from(Array(sampleSize)).map(function(arr, index) {
-        return phantomas(url);
+        return phantomas(url, {'cache-control': 'max-age=-1', 'pragma': 'no-cache', 'expires': 0});
     });
 
     return new Promise(function(resolve, reject) {

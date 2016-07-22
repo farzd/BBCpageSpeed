@@ -24,6 +24,7 @@ app.get('/', function(req, res) {
             sample2Url: config.url2,
             sample2Requests: resultArray[1][0].requests
         }
+        result.difference = parseInt(result.sample2TTFBMean - result.sample1TTFBMean);
         console.log("result", result);
         res.render('home', result)
     }).catch(function(err) {
